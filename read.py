@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 
 import RPi.GPIO as GPIO
@@ -28,7 +29,7 @@ pill16 = 1000
 pill20 = 1000
 
 while True: # Run forever
-    print("=== Pordee pill v0.1===")
+    print("=== Pordee pill v0.8===")
     print("waiting for card")
     sleep(1.5)
     #GPIO.cleanup()
@@ -41,8 +42,8 @@ while True: # Run forever
 
     reader = SimpleMFRC522.SimpleMFRC522()
     id, text = reader.read()
-    print(id)
-    print(text)
+    print("id = " + str(id))
+    print("text = " + str(text))
 
     if id == 649904026617: #Jason
         ###JASON###
@@ -51,28 +52,28 @@ while True: # Run forever
         GPIO.output(19, GPIO.LOW)
         publish.single("customer/jason/19", 250, hostname="localhost")
         pill19 = pill19 - 1
-        print("stock pill 19 = " + pill19)
+        print("stock pill 19 = " + str(pill19))
         publish.single("pill/19", pill19, hostname="localhost")
         
         #pill26
         GPIO.output(26, GPIO.LOW)
         publish.single("customer/jason/26", 150, hostname="localhost")
         pill26 = pill26 - 1
-        print("stock pill 26 = " + pill26)
+        print("stock pill 26 = " + str(pill26))
         publish.single("pill/26", pill26, hostname="localhost")
         
         #pill20
         GPIO.output(20, GPIO.LOW)
         publish.single("customer/jason/20", 650, hostname="localhost")
         pill20 = pill20 - 1
-        print("stock pill 20 = " + pill20)
+        print("stock pill 20 = " + str(pill20))
         publish.single("pill/20", pill20, hostname="localhost")
         
         #pill21
         GPIO.output(21, GPIO.LOW)
         publish.single("customer/jason/21", 450, hostname="localhost")
         pill21 = pill21 - 1
-        print("stock pill 21 = " + pill21)
+        print("stock pill 21 = " + str(pill21))
         publish.single("pill/21", pill21, hostname="localhost")
         
         print("Jason: 19, 26, 20, 21")
@@ -101,14 +102,14 @@ while True: # Run forever
         GPIO.output(13, GPIO.LOW)
         publish.single("customer/edward/13", 350, hostname="localhost")
         pill13 = pill13 - 1
-        print("stock pill 13 = " + pill13)
+        print("stock pill 13 = " + str(pill13))
         publish.single("pill/13", pill13, hostname="localhost")
         
         #pill16
         GPIO.output(16, GPIO.LOW)
         publish.single("customer/edward/16", 550, hostname="localhost")
         pill16 = pill16 - 1
-        print("stock pill 16 = " + pill16)
+        print("stock pill 16 = " + str(pill16))
         publish.single("pill/16", pill16, hostname="localhost")
         
         print("Edward: 13, 16")
@@ -122,21 +123,21 @@ while True: # Run forever
         GPIO.output(16, GPIO.HIGH)
         publish.single("customer/edward/16", 500, hostname="localhost")
   
-    elif id == 000000123456: #Gordon
+    elif id == 584183195820: #Gordon
         ###Gordon###
         
         #pill19
         GPIO.output(19, GPIO.LOW)
         publish.single("customer/gordon/19", 250, hostname="localhost")
         pill19 = pill19 - 1
-        print("stock pill 19 = " + pill19)
+        print("stock pill 19 = " + str(pill19))
         publish.single("pill/19", pill19, hostname="localhost")
         
         #pill26
         GPIO.output(26, GPIO.LOW)
         publish.single("customer/gordon/26", 150, hostname="localhost")
         pill26 = pill26 - 1
-        print("stock pill 26 = " + pill26)
+        print("stock pill 26 = " + str(pill26))
         publish.single("pill/26", pill26, hostname="localhost")
         
         print("Gordon: 19, 26")
@@ -151,35 +152,35 @@ while True: # Run forever
         publish.single("customer/gordon/26", 150, hostname="localhost")
         
 
-    elif id == 000011123456: #Henry
+    elif id ==875643921598: #Henry
         ###Henry###
         
         #pill16
         GPIO.output(16, GPIO.LOW)
         publish.single("customer/henry/16", 550, hostname="localhost")
         pill16 = pill16 - 1
-        print("stock pill 16 = " + pill16)
+        print("stock pill 16 = " + str(pill16))
         publish.single("pill/16", pill16, hostname="localhost")
         
         #pill26
         GPIO.output(26, GPIO.LOW)
         publish.single("customer/henry/26", 150, hostname="localhost")
         pill26 = pill26 - 1
-        print("stock pill 26 = " + pill26)
+        print("stock pill 26 = " + str(pill26))
         publish.single("pill/26", pill26, hostname="localhost")
         
         #pill13
         GPIO.output(13, GPIO.LOW)
         publish.single("customer/henry/13", 350, hostname="localhost")
         pill13 = pill13 - 1
-        print("stock pill 13 = " + pill13)
+        print("stock pill 13 = " + str(pill13))
         publish.single("pill/13", pill13, hostname="localhost")
         
         #pill21
         GPIO.output(21, GPIO.LOW)
         publish.single("customer/henry/21", 450, hostname="localhost")
         pill21 = pill21 - 1
-        print("stock pill 21 = " + pill21)
+        print("stock pill 21 = " + str(pill21))
         publish.single("pill/21", pill21, hostname="localhost")
         
         print("Henry: 16, 26, 13, 21")
